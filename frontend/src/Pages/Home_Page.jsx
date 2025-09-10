@@ -9,7 +9,7 @@ import Footer from "../components/Footer_Section";
 const HomePages = () => {
   return (
     <div className="relative overflow-hidden">
-      <HeaderSection />
+      <HeaderSection/>
       <FoodOptions />
       <SpecialOffers />
       <Testimonials />

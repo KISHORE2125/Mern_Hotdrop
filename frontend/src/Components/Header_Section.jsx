@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";   // ✅ Import
 import Burger_Video from "../assets/Header_Video/Burger.mp4";
 
 // Variants for motion animations
@@ -30,6 +31,8 @@ const childVariants = {
 };
 
 const HeaderSection = React.memo(() => {
+  const navigate = useNavigate(); // ✅ navigation hook
+
   return (
     <header className="relative w-full h-screen overflow-hidden">
       {/* Background Video */}
@@ -47,10 +50,10 @@ const HeaderSection = React.memo(() => {
         <source src="/assets/Header_Video/Burger.webm" type="video/webm" />
       </video>
 
-      {/* Overlay with fade-in */}
+      {/* Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
+        animate={{ opacity: 0.55 }}
         transition={{ duration: 1 }}
         className="absolute inset-0 bg-black"
       />
@@ -60,18 +63,18 @@ const HeaderSection = React.memo(() => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-col justify-center items-center h-full text-center px-6"
+        className="relative z-10 flex flex-col justify-center items-center h-full text-center px-4 sm:px-6"
       >
         <motion.h1
           variants={childVariants}
-          className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg"
+          className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg leading-snug"
         >
           Craving Something Special?
         </motion.h1>
 
         <motion.p
           variants={childVariants}
-          className="mt-4 text-lg md:text-2xl text-gray-200 max-w-2xl"
+          className="mt-3 sm:mt-4 text-base sm:text-lg md:text-2xl text-gray-200 max-w-md sm:max-w-xl"
         >
           Hot meals delivered to your doorstep — fresh, fast, and full of flavor.
         </motion.p>
@@ -80,8 +83,11 @@ const HeaderSection = React.memo(() => {
           variants={childVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => navigate("/menu")}  // ✅ Navigate to MenuPage
           aria-label="Explore our menu"
-          className="mt-6 px-6 py-3 bg-red-500 hover:bg-red-600 text-white text-lg rounded-full shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300"
+          className="mt-6 px-4 sm:px-6 py-2 sm:py-3 bg-red-500 hover:bg-red-600 
+                     text-sm sm:text-lg text-white rounded-full shadow-lg 
+                     focus:outline-none focus:ring-4 focus:ring-red-300"
         >
           Explore Menu 🚀
         </motion.button>
