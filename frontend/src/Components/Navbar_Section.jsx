@@ -3,6 +3,7 @@ import React from "react";
 import { FiMenu, FiX, FiSearch } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
+import { Link } from "react-router-dom";   // ✅ Import Link
 import Deliverylogo from "../assets/Logo/Delivery_Riding.json";
 import { useNavbar } from "../Hooks/Navbar_Hooks";
 
@@ -39,7 +40,6 @@ const Navbar = ({ showAfterSplash = true }) => {
         >
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-full">
-
               {/* Logo */}
               <motion.div
                 variants={variants.linkItem}
@@ -63,17 +63,31 @@ const Navbar = ({ showAfterSplash = true }) => {
                 initial="hidden"
                 animate="visible"
               >
-                {["Home", "Restaurants", "Offers", "Contact"].map((link) => (
-                  <motion.a
-                    key={link}
-                    href={`#${link.toLowerCase()}`}
-                    className="font-bold hover:text-red-500 transition-colors duration-300"
-                    variants={variants.linkItem}
-                    whileHover={variants.linkItem.hoverX}
-                  >
-                    {link}
-                  </motion.a>
-                ))}
+                {/* ✅ Home uses Link */}
+                <Link
+                  to="/"
+                  className="font-bold hover:text-red-500 transition-colors duration-300"
+                >
+                  Home
+                </Link>
+                <a
+                  href="#restaurants"
+                  className="font-bold hover:text-red-500 transition-colors duration-300"
+                >
+                  Restaurants
+                </a>
+                <a
+                  href="#offers"
+                  className="font-bold hover:text-red-500 transition-colors duration-300"
+                >
+                  Offers
+                </a>
+                <a
+                  href="#contact"
+                  className="font-bold hover:text-red-500 transition-colors duration-300"
+                >
+                  Contact
+                </a>
 
                 {/* Desktop Search */}
                 <motion.div variants={variants.linkItem} whileHover={{ scale: 1.05 }} className="relative w-72">
@@ -88,20 +102,24 @@ const Navbar = ({ showAfterSplash = true }) => {
 
               {/* Desktop Buttons */}
               <motion.div className="hidden md:flex items-center space-x-6">
-                <motion.button
-                  className="px-7 py-3 border border-red-500 text-red-600 font-semibold rounded-lg shadow-lg hover:shadow-2xl hover:bg-red-500 hover:text-white text-lg"
-                  variants={variants.linkItem}
-                  whileHover={variants.linkItem.hoverY}
-                >
-                  Sign Up
-                </motion.button>
-                <motion.button
-                  className="px-7 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-2xl hover:bg-red-600 text-lg"
-                  variants={variants.linkItem}
-                  whileHover={{ scale: 1.1, rotateY: -10 }}
-                >
-                  Sign In
-                </motion.button>
+                <Link to="/signup">
+                  <motion.button
+                    className="px-7 py-3 border border-red-500 text-red-600 font-semibold rounded-lg shadow-lg hover:shadow-2xl hover:bg-red-500 hover:text-white text-lg"
+                    variants={variants.linkItem}
+                    whileHover={variants.linkItem.hoverY}
+                  >
+                    Sign Up
+                  </motion.button>
+                </Link>
+                <Link to="/signin">
+                  <motion.button
+                    className="px-7 py-3 bg-red-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-2xl hover:bg-red-600 text-lg"
+                    variants={variants.linkItem}
+                    whileHover={{ scale: 1.1, rotateY: -10 }}
+                  >
+                    Sign In
+                  </motion.button>
+                </Link>
               </motion.div>
 
               {/* Mobile Hamburger */}
@@ -133,65 +151,56 @@ const Navbar = ({ showAfterSplash = true }) => {
                   <button onClick={toggleMobileMenu} className="text-3xl text-red-600 hover:text-red-800"><FiX /></button>
                 </div>
                 <div className="flex flex-col px-4 py-8 space-y-6 text-black text-2xl">
-                  {["Home", "Restaurants", "Offers", "Contact"].map(link => (
-                    <motion.a
-                      key={link}
-                      href={`#${link.toLowerCase()}`}
-                      className="hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
-                      variants={variants.linkItem}
-                      whileHover={{ scale: 1.15, rotateX: 10 }}
-                    >
-                      {link}
-                    </motion.a>
-                  ))}
-                  <motion.button
-                    className="px-7 py-3 border border-red-500 text-red-600 font-semibold rounded-lg hover:bg-red-500 hover:text-white"
-                    variants={variants.linkItem}
-                    whileHover={{ scale: 1.15, rotateY: 8 }}
+                  {/* ✅ Home uses Link */}
+                  <Link
+                    to="/"
+                    onClick={toggleMobileMenu}
+                    className="hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
                   >
-                    Sign Up
-                  </motion.button>
-                  <motion.button
-                    className="px-7 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600"
-                    variants={variants.linkItem}
-                    whileHover={{ scale: 1.15, rotateY: -8 }}
+                    Home
+                  </Link>
+                  <a
+                    href="#restaurants"
+                    onClick={toggleMobileMenu}
+                    className="hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
                   >
-                    Sign In
-                  </motion.button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                    Restaurants
+                  </a>
+                  <a
+                    href="#offers"
+                    onClick={toggleMobileMenu}
+                    className="hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
+                  >
+                    Offers
+                  </a>
+                  <a
+                    href="#contact"
+                    onClick={toggleMobileMenu}
+                    className="hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
+                  >
+                    Contact
+                  </a>
 
-          {/* Mobile Search Overlay */}
-          <AnimatePresence>
-            {searchOpen && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-[999]"
-              >
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                  className="bg-white rounded-2xl shadow-2xl p-6 w-[90%] max-w-lg"
-                >
-                  <div className="flex justify-end">
-                    <button onClick={toggleSearch} className="text-gray-600 hover:text-red-600 text-2xl"><FiX /></button>
-                  </div>
-                  <div className="flex items-center space-x-3 mt-4">
-                    <FiSearch className="text-gray-500 text-2xl" />
-                    <input
-                      type="text"
-                      placeholder="Search for food..."
-                      className="flex-1 border-none outline-none text-lg placeholder-gray-400"
-                      autoFocus
-                    />
-                  </div>
-                </motion.div>
+                  {/* Mobile Buttons */}
+                  <Link to="/signup" onClick={toggleMobileMenu}>
+                    <motion.button
+                      className="px-7 py-3 border border-red-500 text-red-600 font-semibold rounded-lg hover:bg-red-500 hover:text-white"
+                      variants={variants.linkItem}
+                      whileHover={{ scale: 1.15, rotateY: 8 }}
+                    >
+                      Sign Up
+                    </motion.button>
+                  </Link>
+                  <Link to="/signin" onClick={toggleMobileMenu}>
+                    <motion.button
+                      className="px-7 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600"
+                      variants={variants.linkItem}
+                      whileHover={{ scale: 1.15, rotateY: -8 }}
+                    >
+                      Sign In
+                    </motion.button>
+                  </Link>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
