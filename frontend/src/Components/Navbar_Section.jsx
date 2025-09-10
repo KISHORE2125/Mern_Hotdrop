@@ -1,14 +1,26 @@
 // Navbar.jsx
-import React from "react";
-import { FiMenu, FiX, FiSearch } from "react-icons/fi";
+import React, { useEffect } from "react";
+import { FiMenu, FiX, FiSearch, FiShoppingCart } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
-import { Link } from "react-router-dom";   // ✅ Import Link
+import { Link } from "react-router-dom";
 import Deliverylogo from "../assets/Logo/Delivery_Riding.json";
 import { useNavbar } from "../Hooks/Navbar_Hooks";
 
 const Navbar = ({ showAfterSplash = true }) => {
   const { mobileMenuOpen, toggleMobileMenu, searchOpen, toggleSearch, scrolled } = useNavbar();
+
+  // ✅ Lock background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [mobileMenuOpen]);
 
   const variants = {
     linkItem: {
@@ -18,9 +30,9 @@ const Navbar = ({ showAfterSplash = true }) => {
       hoverY: { scale: 1.15, rotateY: 12 },
     },
     mobileMenu: {
-      hidden: { x: "100%", rotateY: 40, opacity: 0 },
-      visible: { x: 0, rotateY: 0, opacity: 1, transition: { type: "tween", duration: 0.5, staggerChildren: 0.05 } },
-      exit: { x: "100%", rotateY: 40, opacity: 0, transition: { type: "tween", duration: 0.3 } },
+      hidden: { y: "-100%", opacity: 0 },
+      visible: { y: 0, opacity: 1, transition: { type: "tween", duration: 0.5, staggerChildren: 0.05 } },
+      exit: { y: "-100%", opacity: 0, transition: { type: "tween", duration: 0.3 } },
     },
     container: { hidden: {}, visible: { transition: { staggerChildren: 0.03 } } },
   };
@@ -49,9 +61,11 @@ const Navbar = ({ showAfterSplash = true }) => {
                 <div className={`transition-all duration-500 ${scrolled ? "w-14 h-14" : "w-20 h-20"}`}>
                   <Lottie animationData={Deliverylogo} loop />
                 </div>
-                <span className={`font-bold text-red-600 ml-2 drop-shadow-lg transition-all duration-500 ${
-                  scrolled ? "text-2xl md:text-3xl" : "text-4xl md:text-5xl"
-                }`}>
+                <span
+                  className={`font-bold text-red-600 ml-2 drop-shadow-lg transition-all duration-500 ${
+                    scrolled ? "text-2xl md:text-3xl" : "text-4xl md:text-5xl"
+                  }`}
+                >
                   Hot Drop!
                 </span>
               </motion.div>
@@ -63,29 +77,20 @@ const Navbar = ({ showAfterSplash = true }) => {
                 initial="hidden"
                 animate="visible"
               >
-                {/* ✅ Home uses Link */}
-                <Link
-                  to="/"
-                  className="font-bold hover:text-red-500 transition-colors duration-300"
-                >
+                <Link to="/" className="font-bold hover:text-red-500 transition-colors duration-300">
                   Home
                 </Link>
-                <a
-                  href="#restaurants"
-                  className="font-bold hover:text-red-500 transition-colors duration-300"
+                <Link
+                  to="/cart"
+                  className="flex items-center gap-2 font-bold hover:text-red-500 transition-colors duration-300"
                 >
                   Cart
-                </a>
-                <a
-                  href="#offers"
-                  className="font-bold hover:text-red-500 transition-colors duration-300"
-                >
+                  <FiShoppingCart className="text-xl" />
+                </Link>
+                <a href="#offers" className="font-bold hover:text-red-500 transition-colors duration-300">
                   Offers
                 </a>
-                <a
-                  href="#contact"
-                  className="font-bold hover:text-red-500 transition-colors duration-300"
-                >
+                <a href="#contact" className="font-bold hover:text-red-500 transition-colors duration-300">
                   Contact
                 </a>
 
@@ -145,13 +150,20 @@ const Navbar = ({ showAfterSplash = true }) => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="md:hidden bg-pink-100 backdrop-blur-lg shadow-2xl fixed top-0 right-0 h-full w-3/4 z-50"
+                className="md:hidden bg-pink-100 backdrop-blur-lg fixed inset-0 z-50 flex flex-col min-h-screen"
               >
+                {/* Close Button */}
                 <div className="flex justify-end p-4">
-                  <button onClick={toggleMobileMenu} className="text-3xl text-red-600 hover:text-red-800"><FiX /></button>
+                  <button
+                    onClick={toggleMobileMenu}
+                    className="text-3xl text-red-600 hover:text-red-800"
+                  >
+                    <FiX />
+                  </button>
                 </div>
-                <div className="flex flex-col px-4 py-8 space-y-6 text-black text-2xl">
-                  {/* ✅ Home uses Link */}
+
+                {/* ✅ Fullscreen Content */}
+                <div className="flex flex-col flex-grow space-y-8 text-black text-2xl bg-pink-100 px-6 py-12">
                   <Link
                     to="/"
                     onClick={toggleMobileMenu}
@@ -159,13 +171,13 @@ const Navbar = ({ showAfterSplash = true }) => {
                   >
                     Home
                   </Link>
-                  <a
-                    href="#restaurants"
+                  <Link
+                    to="/cart"
                     onClick={toggleMobileMenu}
-                    className="hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
+                    className="flex items-center gap-3 hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
                   >
-                    Cart
-                  </a>
+                    Cart <FiShoppingCart className="text-2xl" />
+                  </Link>
                   <a
                     href="#offers"
                     onClick={toggleMobileMenu}
@@ -181,10 +193,10 @@ const Navbar = ({ showAfterSplash = true }) => {
                     Contact
                   </a>
 
-                  {/* Mobile Buttons */}
+                  {/* Buttons */}
                   <Link to="/signup" onClick={toggleMobileMenu}>
                     <motion.button
-                      className="px-7 py-3 border border-red-500 text-red-600 font-semibold rounded-lg hover:bg-red-500 hover:text-white"
+                      className="px-8 py-3 border border-red-500 text-red-600 font-semibold rounded-lg hover:bg-red-500 hover:text-white"
                       variants={variants.linkItem}
                       whileHover={{ scale: 1.15, rotateY: 8 }}
                     >
@@ -193,7 +205,7 @@ const Navbar = ({ showAfterSplash = true }) => {
                   </Link>
                   <Link to="/signin" onClick={toggleMobileMenu}>
                     <motion.button
-                      className="px-7 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600"
+                      className="px-8 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600"
                       variants={variants.linkItem}
                       whileHover={{ scale: 1.15, rotateY: -8 }}
                     >
