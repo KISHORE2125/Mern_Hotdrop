@@ -74,7 +74,7 @@ const Navbar = ({ showAfterSplash = true }) => {
                   href="#restaurants"
                   className="font-bold hover:text-red-500 transition-colors duration-300"
                 >
-                  Restaurants
+                  Cart
                 </a>
                 <a
                   href="#offers"
@@ -164,7 +164,7 @@ const Navbar = ({ showAfterSplash = true }) => {
                     onClick={toggleMobileMenu}
                     className="hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
                   >
-                    Restaurants
+                    Cart
                   </a>
                   <a
                     href="#offers"

@@ -1,8 +1,9 @@
+// Components/FoodOptions.jsx
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 
-// ✅ Food Images
+// ✅ Food Images (make sure all are in your assets folder)
 import Margherita_Pizza from "../assets/Png/Food_Option/Margherita_Pizza.png";
 import BBQ_Chicken_Wings from "../assets/Png/Food_Option/BBQ_Chicken_Wings.png";
 import Strawberry_Smoothie from "../assets/Png/Food_Option/Strawberry_Smoothie.png";
@@ -17,7 +18,16 @@ import Ice_Cream from "../assets/Png/Food_Option/Ice_Cream.png";
 import Chicken_Burger from "../assets/Png/Food_Option/Chicken_Burger.png";
 import Veggie_Burger from "../assets/Png/Food_Option/Veggie_Burger.png";
 
-// ✅ Food Items
+// extra 7 food images (add them in assets if not present)
+import Grilled_Salmon from "../assets/Png/Food_Option/Grilled_Salmon.png";
+import Cheese_Sandwich from "../assets/Png/Food_Option/Cheese_Sandwich.png";
+import Pancakes from "../assets/Png/Food_Option/Pancakes.png";
+import Ramen_Bowl from "../assets/Png/Food_Option/Ramen_Bowl.png";
+import Butter_Chicken from "../assets/Png/Food_Option/Butter_Chicken.png";
+import Falafel_Wrap from "../assets/Png/Food_Option/Falafel_Wrap.png";
+import Tiramisu from "../assets/Png/Food_Option/Tiramisu.png";
+
+// ✅ Food Items (20 items)
 const foodItems = [
   {
     id: 1,
@@ -136,6 +146,69 @@ const foodItems = [
     textColor: "text-emerald-700",
     subTextColor: "text-lime-500",
   },
+  {
+    id: 14,
+    name: "Grilled Salmon",
+    description: "Tender fish with lemon butter 🐟🍋",
+    img: Grilled_Salmon,
+    gradient: "from-blue-100 to-indigo-200",
+    textColor: "text-indigo-700",
+    subTextColor: "text-blue-500",
+  },
+  {
+    id: 15,
+    name: "Cheese Sandwich",
+    description: "Golden grilled & cheesy 🥪🧀",
+    img: Cheese_Sandwich,
+    gradient: "from-yellow-100 to-orange-200",
+    textColor: "text-yellow-700",
+    subTextColor: "text-orange-500",
+  },
+  {
+    id: 16,
+    name: "Pancakes",
+    description: "Fluffy, syrupy & sweet 🥞🍯",
+    img: Pancakes,
+    gradient: "from-amber-100 to-yellow-200",
+    textColor: "text-amber-700",
+    subTextColor: "text-yellow-600",
+  },
+  {
+    id: 17,
+    name: "Ramen Bowl",
+    description: "Hot noodles in rich broth 🍜",
+    img: Ramen_Bowl,
+    gradient: "from-red-100 to-orange-200",
+    textColor: "text-red-600",
+    subTextColor: "text-orange-500",
+  },
+  {
+    id: 18,
+    name: "Butter Chicken",
+    description: "Rich, creamy & spiced Indian curry 🍛",
+    img: Butter_Chicken,
+    gradient: "from-orange-100 to-yellow-200",
+    textColor: "text-orange-700",
+    subTextColor: "text-yellow-600",
+  },
+  {
+    id: 19,
+    name: "Falafel Wrap",
+    description: "Crispy falafel with tahini 🥙",
+    img: Falafel_Wrap,
+    gradient: "from-green-100 to-lime-200",
+    textColor: "text-green-700",
+    subTextColor: "text-lime-500",
+  },
+  {
+    id: 20,
+    name: "Tiramisu",
+    description: "Coffee-flavored Italian dessert ☕🍰",
+    img: Tiramisu,
+    gradient: "from-brown-100 to-yellow-100",
+    textColor: "text-amber-700",
+    subTextColor: "text-yellow-600",
+  },
 ];
 
 // ✅ Shimmer Animation
@@ -162,8 +235,6 @@ const FoodCard = ({ item, index }) => {
       ref={ref}
       whileHover={{
         scale: 1.08,
-        rotateX: 6,
-        rotateY: -6,
         boxShadow: "0 25px 60px rgba(0,0,0,0.35)",
       }}
       transition={{ type: "spring", stiffness: 180, damping: 20 }}
@@ -225,12 +296,6 @@ const FoodOptions = () => {
     >
       {/* Gradient Glow Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-yellow-50/10 pointer-events-none" />
-
-      {/* Shine Overlay */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-2/3 h-1/3 bg-white/20 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 right-1/4 w-1/2 h-1/4 bg-yellow-200/10 blur-2xl rounded-full" />
-      </div>
 
       {/* Title */}
       <motion.div
