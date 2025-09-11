@@ -42,17 +42,20 @@ const SplashScreen = ({ onFinish, fade = true }) => {
           </motion.div>
 
           {/* Gradient background animation */}
-          <style jsx>{`
-            .animate-gradient {
-              background-size: 400% 400%;
-              animation: gradientBG 2s ease forwards;
-            }
+ <style>
+  {`
+    .animate-gradient {
+      background-size: 400% 400%;
+      animation: gradientBG 2s ease forwards;
+    }
 
-            @keyframes gradientBG {
-              0% { background-position: 0% 50%; }
-              100% { background-position: 100% 50%; }
-            }
-          `}</style>
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+  `}
+</style>
+
         </motion.div>
       )}
     </AnimatePresence>
