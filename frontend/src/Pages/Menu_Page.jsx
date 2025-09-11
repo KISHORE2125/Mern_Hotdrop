@@ -26,7 +26,9 @@ import Falafel_Wrap from "../assets/Png/Food_Option/Falafel_Wrap.png";
 import Tiramisu from "../assets/Png/Food_Option/Tiramisu.png";
 
 // ✅ Example Menu Data with matching glow colors
+// ✅ Example Menu Data with matching glow colors
 const menuItems = [
+  // ---- Existing 20 Items ----
   { id: 1, name: "Margherita Pizza", category: "Pizza", price: 299, image: Margherita_Pizza, glow: "from-red-400/30 to-orange-400/30" },
   { id: 2, name: "BBQ Chicken Wings", category: "Chicken", price: 349, image: BBQ_Chicken_Wings, glow: "from-orange-500/30 to-red-500/30" },
   { id: 3, name: "Strawberry Smoothie", category: "Drinks", price: 149, image: Strawberry_Smoothie, glow: "from-pink-400/30 to-rose-400/30" },
@@ -47,6 +49,48 @@ const menuItems = [
   { id: 18, name: "Butter Chicken", category: "Indian", price: 349, image: Butter_Chicken, glow: "from-orange-500/30 to-red-500/30" },
   { id: 19, name: "Falafel Wrap", category: "Middle Eastern", price: 229, image: Falafel_Wrap, glow: "from-green-300/30 to-emerald-400/30" },
   { id: 20, name: "Tiramisu", category: "Dessert", price: 299, image: Tiramisu, glow: "from-amber-400/30 to-yellow-300/30" },
+
+  // ---- New Items (21–60) ----
+  { id: 21, name: "Pepperoni Pizza", category: "Pizza", price: 349, image: Veggie_Pizza, glow: "from-red-500/30 to-yellow-400/30" },
+  { id: 22, name: "Garlic Bread", category: "Snacks", price: 129, image: Cheese_Sandwich, glow: "from-yellow-200/30 to-orange-200/30" },
+  { id: 23, name: "Mango Lassi", category: "Drinks", price: 99, image: Strawberry_Smoothie, glow: "from-yellow-300/30 to-orange-300/30" },
+  { id: 24, name: "Cold Coffee", category: "Drinks", price: 149, image: Strawberry_Smoothie, glow: "from-brown-300/30 to-yellow-200/30" },
+  { id: 25, name: "Blueberry Muffin", category: "Dessert", price: 89, image: Chocolate_Donut, glow: "from-purple-300/30 to-blue-300/30" },
+  { id: 26, name: "Veg Hakka Noodles", category: "Indian", price: 179, image: Ramen_Bowl, glow: "from-green-300/30 to-orange-300/30" },
+  { id: 27, name: "Chicken Biryani", category: "Indian", price: 299, image: Butter_Chicken, glow: "from-yellow-400/30 to-red-400/30" },
+  { id: 28, name: "Mutton Kebab", category: "Indian", price: 399, image: Butter_Chicken, glow: "from-red-400/30 to-orange-400/30" },
+  { id: 29, name: "Onion Rings", category: "Snacks", price: 139, image: French_Fries, glow: "from-yellow-300/30 to-amber-400/30" },
+  { id: 30, name: "Fish Tacos", category: "Mexican", price: 249, image: Spicy_Tacos, glow: "from-yellow-300/30 to-orange-400/30" },
+  { id: 31, name: "Veg Spring Roll", category: "Snacks", price: 159, image: Falafel_Wrap, glow: "from-green-300/30 to-emerald-300/30" },
+  { id: 32, name: "Club Sandwich", category: "Snacks", price: 189, image: Cheese_Sandwich, glow: "from-yellow-300/30 to-amber-400/30" },
+  { id: 33, name: "Avocado Salad", category: "Salad", price: 219, image: Caesar_Salad, glow: "from-green-400/30 to-lime-400/30" },
+  { id: 34, name: "Greek Salad", category: "Salad", price: 229, image: Caesar_Salad, glow: "from-green-400/30 to-blue-300/30" },
+  { id: 35, name: "Fried Rice", category: "Indian", price: 199, image: Ramen_Bowl, glow: "from-yellow-200/30 to-orange-200/30" },
+  { id: 36, name: "Dal Makhani", category: "Indian", price: 249, image: Butter_Chicken, glow: "from-orange-300/30 to-brown-300/30" },
+  { id: 37, name: "Chole Bhature", category: "Indian", price: 229, image: Butter_Chicken, glow: "from-yellow-400/30 to-red-400/30" },
+  { id: 38, name: "Veg Pulao", category: "Indian", price: 199, image: Ramen_Bowl, glow: "from-green-300/30 to-yellow-200/30" },
+  { id: 39, name: "Idli Sambar", category: "Breakfast", price: 99, image: Pancakes, glow: "from-orange-300/30 to-yellow-300/30" },
+  { id: 40, name: "Masala Dosa", category: "Breakfast", price: 149, image: Pancakes, glow: "from-yellow-300/30 to-orange-400/30" },
+  { id: 41, name: "Omelette", category: "Breakfast", price: 89, image: Pancakes, glow: "from-yellow-200/30 to-orange-200/30" },
+  { id: 42, name: "French Toast", category: "Breakfast", price: 129, image: Pancakes, glow: "from-yellow-300/30 to-amber-300/30" },
+  { id: 43, name: "Chicken Shawarma", category: "Middle Eastern", price: 249, image: Falafel_Wrap, glow: "from-red-300/30 to-yellow-300/30" },
+  { id: 44, name: "Hummus with Pita", category: "Middle Eastern", price: 199, image: Falafel_Wrap, glow: "from-yellow-200/30 to-brown-300/30" },
+  { id: 45, name: "Baklava", category: "Dessert", price: 299, image: Tiramisu, glow: "from-yellow-300/30 to-brown-400/30" },
+  { id: 46, name: "Shish Kebab", category: "Middle Eastern", price: 349, image: Falafel_Wrap, glow: "from-red-300/30 to-orange-300/30" },
+  { id: 47, name: "Tempura", category: "Japanese", price: 399, image: Sushi_Platter, glow: "from-yellow-200/30 to-red-300/30" },
+  { id: 48, name: "Miso Soup", category: "Japanese", price: 149, image: Ramen_Bowl, glow: "from-green-200/30 to-yellow-200/30" },
+  { id: 49, name: "Udon Noodles", category: "Japanese", price: 249, image: Ramen_Bowl, glow: "from-yellow-200/30 to-orange-200/30" },
+  { id: 50, name: "Teriyaki Chicken", category: "Japanese", price: 349, image: Sushi_Platter, glow: "from-orange-300/30 to-red-400/30" },
+  { id: 51, name: "Lobster Roll", category: "Seafood", price: 1399, image: Grilled_Salmon, glow: "from-orange-400/30 to-pink-400/30" },
+  { id: 52, name: "Prawn Curry", category: "Seafood", price: 799, image: Grilled_Salmon, glow: "from-red-400/30 to-orange-400/30" },
+  { id: 53, name: "Crab Cakes", category: "Seafood", price: 999, image: Grilled_Salmon, glow: "from-yellow-300/30 to-orange-300/30" },
+  { id: 54, name: "Clam Chowder", category: "Seafood", price: 699, image: Grilled_Salmon, glow: "from-yellow-200/30 to-white/30" },
+  { id: 55, name: "Cupcake", category: "Dessert", price: 99, image: Chocolate_Donut, glow: "from-pink-300/30 to-yellow-300/30" },
+  { id: 56, name: "Brownie", category: "Dessert", price: 129, image: Chocolate_Donut, glow: "from-brown-300/30 to-yellow-200/30" },
+  { id: 57, name: "Cheesecake", category: "Dessert", price: 199, image: Tiramisu, glow: "from-yellow-200/30 to-pink-200/30" },
+  { id: 58, name: "Panna Cotta", category: "Dessert", price: 249, image: Tiramisu, glow: "from-red-200/30 to-yellow-200/30" },
+  { id: 59, name: "Smoothie Bowl", category: "Breakfast", price: 179, image: Strawberry_Smoothie, glow: "from-purple-200/30 to-pink-200/30" },
+  { id: 60, name: "Protein Shake", category: "Drinks", price: 199, image: Strawberry_Smoothie, glow: "from-yellow-200/30 to-brown-300/30" },
 ];
 
 

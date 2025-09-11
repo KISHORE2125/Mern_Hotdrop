@@ -10,21 +10,21 @@ import User3 from "../assets/Png/Food_Option/Chicken_Burger.png";
 const Testimonials = () => {
   const reviews = [
     {
-      name: "Sophia L.",
+      name: "Tamil Selvam. S",
       text: "The burger was juicy and flavorful! The limited-time offer made it even better. Will definitely order again.",
-      rating: 5,
+      rating: 4,
       image: User1,
     },
     {
-      name: "Michael R.",
+      name: "KarthiKeyan K.",
       text: "Fast delivery, amazing taste, and the discount sealed the deal. Highly recommend!",
       rating: 5,
       image: User2,
     },
     {
-      name: "Aisha K.",
+      name: "Elango K.",
       text: "Loved the crispy edges on the burger. Plus, the deal felt like a steal! ⭐⭐⭐⭐⭐",
-      rating: 5,
+      rating: 4,
       image: User3,
     },
   ];
@@ -49,13 +49,14 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: idx * 0.2 }}
             viewport={{ once: true }}
-            className="min-w-[300px] md:min-w-[400px] snap-center 
+            className="min-w-[280px] md:min-w-[400px] snap-center 
                        bg-gradient-to-b from-gray-900/70 to-black/80 
                        backdrop-blur-lg border border-yellow-500/30 
-                       rounded-3xl p-8 shadow-lg flex flex-col items-center"
+                       rounded-3xl p-8 shadow-lg flex flex-col items-center 
+                       justify-between md:h-[370px]" // ✅ fixed height only on md+
           >
-            {/* Avatar */}
-            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.6)]">
+            {/* Top: Avatar */}
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.6)]">
               <img
                 src={review.image}
                 alt={review.name}
@@ -63,25 +64,26 @@ const Testimonials = () => {
               />
             </div>
 
-            {/* Review */}
-            <p className="mt-6 text-gray-200 italic text-center leading-relaxed">
+            {/* Middle: Review */}
+            <p className="mt-6 text-gray-200 italic text-center leading-relaxed flex-grow flex items-center">
               “{review.text}”
             </p>
 
-            {/* Stars */}
-            <div className="flex justify-center gap-1 mt-4">
-              {[...Array(review.rating)].map((_, i) => (
-                <FaStar
-                  key={i}
-                  className="text-yellow-400 text-lg drop-shadow-[0_0_8px_rgba(250,204,21,0.8)]"
-                />
-              ))}
-            </div>
+            {/* Bottom: Stars + Name */}
+            <div className="flex flex-col items-center">
+              <div className="flex justify-center gap-1 mt-4">
+                {[...Array(review.rating)].map((_, i) => (
+                  <FaStar
+                    key={i}
+                    className="text-yellow-400 text-lg drop-shadow-[0_0_8px_rgba(250,204,21,0.8)]"
+                  />
+                ))}
+              </div>
 
-            {/* Name */}
-            <span className="mt-4 text-yellow-300 font-bold text-lg tracking-wide drop-shadow-md">
-              {review.name}
-            </span>
+              <span className="mt-4 text-yellow-300 font-bold text-lg tracking-wide drop-shadow-md">
+                {review.name}
+              </span>
+            </div>
           </motion.div>
         ))}
       </div>
