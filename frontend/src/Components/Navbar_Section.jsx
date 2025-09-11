@@ -1,6 +1,5 @@
-// Navbar.jsx
 import React, { useEffect } from "react";
-import { FiMenu, FiX, FiSearch, FiShoppingCart } from "react-icons/fi";
+import { FiMenu, FiX, FiShoppingCart } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ import Deliverylogo from "../assets/Logo/Delivery_Riding.json";
 import { useNavbar } from "../Hooks/Navbar_Hooks";
 
 const Navbar = ({ showAfterSplash = true }) => {
-  const { mobileMenuOpen, toggleMobileMenu, searchOpen, toggleSearch, scrolled } = useNavbar();
+  const { mobileMenuOpen, toggleMobileMenu, scrolled } = useNavbar();
 
   // ✅ Lock background scroll when mobile menu is open
   useEffect(() => {
@@ -87,7 +86,6 @@ const Navbar = ({ showAfterSplash = true }) => {
                   Cart
                   <FiShoppingCart className="text-xl" />
                 </Link>
-                {/* ✅ Fixed Offers Link */}
                 <Link
                   to="/#offers"
                   className="font-bold hover:text-red-500 transition-colors duration-300"
@@ -97,16 +95,6 @@ const Navbar = ({ showAfterSplash = true }) => {
                 <Link to="/contact" className="font-bold hover:text-red-500 transition-colors duration-300">
                   Contact
                 </Link>
-
-                {/* Desktop Search */}
-                <motion.div variants={variants.linkItem} whileHover={{ scale: 1.05 }} className="relative w-72">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    className="pl-4 pr-10 py-3 rounded-full border border-gray-400 bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-400 shadow-lg w-full text-lg"
-                  />
-                  <FiSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-700 text-xl" />
-                </motion.div>
               </motion.div>
 
               {/* Desktop Buttons */}
@@ -132,13 +120,7 @@ const Navbar = ({ showAfterSplash = true }) => {
               </motion.div>
 
               {/* Mobile Hamburger */}
-              <div className="md:hidden flex items-center space-x-4">
-                <button
-                  onClick={toggleSearch}
-                  className="p-3 rounded-full bg-gray-100 hover:bg-pink-200 text-gray-700 hover:text-red-600 shadow-md"
-                >
-                  <FiSearch className="text-2xl" />
-                </button>
+              <div className="md:hidden flex items-center">
                 <button onClick={toggleMobileMenu} className="text-black text-4xl">
                   {mobileMenuOpen ? <FiX /> : <FiMenu />}
                 </button>
@@ -156,7 +138,6 @@ const Navbar = ({ showAfterSplash = true }) => {
                 exit="exit"
                 className="md:hidden bg-pink-100 backdrop-blur-lg fixed inset-0 z-50 flex flex-col min-h-screen"
               >
-                {/* Close Button */}
                 <div className="flex justify-end p-4">
                   <button
                     onClick={toggleMobileMenu}
@@ -166,7 +147,7 @@ const Navbar = ({ showAfterSplash = true }) => {
                   </button>
                 </div>
 
-                {/* ✅ Fullscreen Content */}
+                {/* Fullscreen Mobile Links */}
                 <div className="flex flex-col flex-grow space-y-8 text-black text-2xl bg-pink-100 px-6 py-12">
                   <Link
                     to="/"
@@ -182,7 +163,6 @@ const Navbar = ({ showAfterSplash = true }) => {
                   >
                     Cart <FiShoppingCart className="text-2xl" />
                   </Link>
-                  {/* ✅ Fixed Mobile Offers Link */}
                   <Link
                     to="/#offers"
                     onClick={toggleMobileMenu}
