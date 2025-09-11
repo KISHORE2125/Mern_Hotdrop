@@ -3,7 +3,6 @@ import React from "react";
 import SpecialOffers from "../Components/SpecialOffers_Section";
 import Testimonials from "../Components/Testimonials_Section";
 import HeaderSection from "../Components/Header_Section";
-import Footer from "../Components/Footer_Section";
 
 const HomePage = () => {
   return (
@@ -23,8 +22,6 @@ const HomePage = () => {
         <Testimonials />
       </section>
 
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };

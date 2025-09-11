@@ -87,12 +87,16 @@ const Navbar = ({ showAfterSplash = true }) => {
                   Cart
                   <FiShoppingCart className="text-xl" />
                 </Link>
-                <a href="#offers" className="font-bold hover:text-red-500 transition-colors duration-300">
+                {/* ✅ Fixed Offers Link */}
+                <Link
+                  to="/#offers"
+                  className="font-bold hover:text-red-500 transition-colors duration-300"
+                >
                   Offers
-                </a>
-                <a href="/contact" className="font-bold hover:text-red-500 transition-colors duration-300">
+                </Link>
+                <Link to="/contact" className="font-bold hover:text-red-500 transition-colors duration-300">
                   Contact
-                </a>
+                </Link>
 
                 {/* Desktop Search */}
                 <motion.div variants={variants.linkItem} whileHover={{ scale: 1.05 }} className="relative w-72">
@@ -178,20 +182,21 @@ const Navbar = ({ showAfterSplash = true }) => {
                   >
                     Cart <FiShoppingCart className="text-2xl" />
                   </Link>
-                  <a
-                    href="#offers"
+                  {/* ✅ Fixed Mobile Offers Link */}
+                  <Link
+                    to="/#offers"
                     onClick={toggleMobileMenu}
                     className="hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
                   >
                     Offers
-                  </a>
-                  <a
-                    href="#contact"
+                  </Link>
+                  <Link
+                    to="/contact"
                     onClick={toggleMobileMenu}
                     className="hover:text-red-500 font-bold transition-colors duration-300 drop-shadow-md"
                   >
                     Contact
-                  </a>
+                  </Link>
 
                   {/* Buttons */}
                   <Link to="/signup" onClick={toggleMobileMenu}>
