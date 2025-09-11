@@ -69,43 +69,41 @@ const Navbar = ({ showAfterSplash = true }) => {
                   Hot Drop!
                 </span>
               </motion.div>
-{/* Desktop Links */}
-<motion.div
-  className="hidden md:flex flex-1 justify-center items-center space-x-8 text-black"
-  variants={variants.container}
-  initial="hidden"
-  animate="visible"
->
-  <Link to="/" className="font-bold hover:text-red-500 transition-colors duration-300">
-    Home
-  </Link>
-  <Link
-    to="/cart"
-    className="flex items-center gap-2 font-bold hover:text-red-500 transition-colors duration-300"
-  >
-    Cart
-    <FiShoppingCart className="text-xl" />
-  </Link>
 
-  {/* ✅ Use anchor for in-page section scroll */}
-  <a href="#offers" className="font-bold hover:text-red-500 transition-colors duration-300">
-    Offers
-  </a>
-  <a href="#contact" className="font-bold hover:text-red-500 transition-colors duration-300">
-    Contact
-  </a>
+              {/* Desktop Links */}
+              <motion.div
+                className="hidden md:flex flex-1 justify-center items-center space-x-8 text-black"
+                variants={variants.container}
+                initial="hidden"
+                animate="visible"
+              >
+                <Link to="/" className="font-bold hover:text-red-500 transition-colors duration-300">
+                  Home
+                </Link>
+                <Link
+                  to="/cart"
+                  className="flex items-center gap-2 font-bold hover:text-red-500 transition-colors duration-300"
+                >
+                  Cart
+                  <FiShoppingCart className="text-xl" />
+                </Link>
+                <a href="#offers" className="font-bold hover:text-red-500 transition-colors duration-300">
+                  Offers
+                </a>
+                <a href="/contact" className="font-bold hover:text-red-500 transition-colors duration-300">
+                  Contact
+                </a>
 
-  {/* Desktop Search */}
-  <motion.div variants={variants.linkItem} whileHover={{ scale: 1.05 }} className="relative w-72">
-    <input
-      type="text"
-      placeholder="Search..."
-      className="pl-4 pr-10 py-3 rounded-full border border-gray-400 bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-400 shadow-lg w-full text-lg"
-    />
-    <FiSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-700 text-xl" />
-  </motion.div>
-</motion.div>
-
+                {/* Desktop Search */}
+                <motion.div variants={variants.linkItem} whileHover={{ scale: 1.05 }} className="relative w-72">
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    className="pl-4 pr-10 py-3 rounded-full border border-gray-400 bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-400 shadow-lg w-full text-lg"
+                  />
+                  <FiSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-700 text-xl" />
+                </motion.div>
+              </motion.div>
 
               {/* Desktop Buttons */}
               <motion.div className="hidden md:flex items-center space-x-6">

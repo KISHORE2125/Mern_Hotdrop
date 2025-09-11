@@ -5,6 +5,12 @@ import SplashScreen from "./Components/SplashScreen_Section";
 import Navbar from "./Components/Navbar_Section";
 import useAppHooks from "./Hooks/App_Hooks";
 import ScrollToTop from "./Hooks/ScrollTop_Hooks"   // ✅ new
+import ContactPage from "./Pages/ContactPage";  // ✅ new
+import FAQPage from "./Pages/FAQPage";  // ✅ new
+import PrivacyPolicyPage from "./Pages/PrivacyPolicyPage";  // ✅ new
+import TermsOfServicePage from "./Pages/TermsOfServicePage";  // ✅ new
+import HelpCenterPage from "./Pages/HelpCenterPage";  // ✅ new
+
 
 // Pages
 import HomePages from "./Pages/Home_Page";
@@ -33,6 +39,14 @@ const App = () => {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/privacy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsOfServicePage />} />
+            <Route path="/help" element={<HelpCenterPage />} />
+
+
+
           </Routes>
         </div>
       )}
