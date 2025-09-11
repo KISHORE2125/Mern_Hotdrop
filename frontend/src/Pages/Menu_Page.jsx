@@ -58,10 +58,10 @@ const MenuPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-red-50 pt-24 px-6 md:px-16">
+<div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-red-50 px-6 md:px-16">
       {/* Hero Section */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent drop-shadow-lg">
+      <div className="text-center mb-12 mt-25">
+        <h1 className=" text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent drop-shadow-lg">
           Our Premium Menu ✨
         </h1>
         <p className="text-gray-700 mt-3 text-base md:text-lg max-w-2xl mx-auto">

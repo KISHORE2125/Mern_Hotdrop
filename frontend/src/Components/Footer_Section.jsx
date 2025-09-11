@@ -17,35 +17,34 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
-          <ul className="space-y-2">
-            <li>
-              <Link 
-                to="/menu"
-                className="hover:text-yellow-400 transition"
-              >
-                Menu
-              </Link>
-            </li>
-            <li>
-              <Link to="/#offers" className="hover:text-yellow-400 transition">
-                Special Offers
-              </Link>
-            </li>
-            <li>
-              <Link to="/#testimonials" className="hover:text-yellow-400 transition">
-                Testimonials
-              </Link>
-            </li>
-            <li>
-              <Link to="/#contact" className="hover:text-yellow-400 transition">
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-        </div>
+{/* Quick Links */}
+<div>
+  <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+  <ul className="space-y-2">
+    <li>
+      <Link to="/menu" className="hover:text-yellow-400 transition">
+        Menu
+      </Link>
+    </li>
+    <li>
+      {/* ✅ Use anchor for in-page scroll */}
+      <a href="#offers" className="hover:text-yellow-400 transition">
+        Special Offers
+      </a>
+    </li>
+    <li>
+      <a href="#testimonials" className="hover:text-yellow-400 transition">
+        Testimonials
+      </a>
+    </li>
+    <li>
+      <a href="#contact" className="hover:text-yellow-400 transition">
+        Contact Us
+      </a>
+    </li>
+  </ul>
+</div>
+
 
         {/* Support */}
         <div>

@@ -1,21 +1,32 @@
-// Pages/HomePages.jsx
+// HomePage.jsx
 import React from "react";
-import HeaderSection from "../components/Header_Section";
-import FoodOptions from "../Components/Food_Option_Section";
-import SpecialOffers from "../components/Special_Offers_Section";
-import Testimonials from "../components/Testimonials_Section";
-import Footer from "../components/Footer_Section";
+import SpecialOffers from "../Components/SpecialOffers_Section";
+import Testimonials from "../Components/Testimonials_Section";
+import HeaderSection from "../Components/Header_Section";
+import Footer from "../Components/Footer_Section";
 
-const HomePages = () => {
+const HomePage = () => {
   return (
-    <div className="relative overflow-hidden">
-      <HeaderSection/>
-      <FoodOptions />
-      <SpecialOffers />
-      <Testimonials />
+    <div className="pt-24">
+      {/* Hero Section */}
+      <section id="home">
+        <HeaderSection />
+      </section>
+
+      {/* Offers Section */}
+      <section id="offers">
+        <SpecialOffers />
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials">
+        <Testimonials />
+      </section>
+
+      {/* Footer */}
       <Footer />
     </div>
   );
 };
 
-export default HomePages;
+export default HomePage;

@@ -1,16 +1,16 @@
+// Components/Special_Offers_Section.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-import { useCountdown } from "../Hooks/Special_Offers_Hooks"; // import hook
-
-// Replace with your actual promo image path
+import { useCountdown } from "../Hooks/SpecialOffers_Hooks"; 
 import OfferImage from "../assets/Png/Food_Option/Chicken_Burger.png";
 
 const SpecialOffers = () => {
-  const [hrs, mins, secs] = useCountdown(2); // pass hours if needed
+  const [hrs, mins, secs] = useCountdown(2); // countdown hook
 
   return (
     <motion.section
+      id="offers"   // ✅ For smooth scroll from navbar/footer
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -24,7 +24,7 @@ const SpecialOffers = () => {
                    shadow-[0_0_40px_rgba(250,204,21,0.15)] 
                    rounded-3xl p-10 md:p-14 gap-10 z-10"
       >
-        {/* Left Side - Image */}
+        {/* Left Side - Promo Image */}
         <motion.div
           initial={{ scale: 0.95, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}

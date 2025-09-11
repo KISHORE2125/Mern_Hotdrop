@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
-import useSplashTimeout from "../Hooks/Splash_Hooks";
+import useSplashTimeout from "../Hooks/SplashScreen_Hooks";
 
 import Order_Now from "../assets/Animation/Order_Now.json";
 
