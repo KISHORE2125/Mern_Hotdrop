@@ -1,3 +1,4 @@
+// Navbar_Hooks.jsx
 import { useState, useEffect } from "react";
 
 export const useNavbar = () => {
@@ -5,14 +6,36 @@ export const useNavbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const toggleMobileMenu = () => setMobileMenuOpen(prev => !prev);
-  const toggleSearch = () => setSearchOpen(prev => !prev);
+  // Toggle mobile menu
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(prev => !prev);
+    // Close search when opening menu
+    if (!mobileMenuOpen) setSearchOpen(false);
+  };
 
+  // Toggle mobile search
+  const toggleSearch = () => {
+    setSearchOpen(prev => !prev);
+    // Close menu when opening search
+    if (!searchOpen) setMobileMenuOpen(false);
+  };
+
+  // Detect scroll
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      if (window.scrollY > 50) setScrolled(true);
+      else setScrolled(false);
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return { mobileMenuOpen, toggleMobileMenu, searchOpen, toggleSearch, scrolled };
+  return {
+    mobileMenuOpen,
+    toggleMobileMenu,
+    searchOpen,
+    toggleSearch,
+    scrolled,
+  };
 };

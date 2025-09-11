@@ -3,6 +3,7 @@ import React from "react";
 import SpecialOffers from "../Components/SpecialOffers_Section";
 import Testimonials from "../Components/Testimonials_Section";
 import HeaderSection from "../Components/Header_Section";
+import FoodOptions from "../Components/FoodOption_Section";
 
 const HomePage = () => {
   return (
@@ -10,6 +11,9 @@ const HomePage = () => {
       {/* Hero Section */}
       <section id="home">
         <HeaderSection />
+      </section>
+      <section id="home">
+        <FoodOptions/>
       </section>
 
       {/* Offers Section */}
